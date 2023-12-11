@@ -75,6 +75,7 @@ public class coin : MonoBehaviour
             {
                 player.lifes--;
                 player.hurt.Play();
+                player.animator.SetTrigger("hurt");
                 player.audio.PlayOneShot(player.hurted);
                 Destroy(gameObject);
             }

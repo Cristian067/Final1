@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
 
     public AudioSource audio;
 
+    public Animator animator;
+
 
 
     private float limitx = 10;
@@ -22,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float speed = 8f;
 
     public TMP_Text text;
+    public TMP_Text winLose;
 
     [SerializeField] private ParticleSystem dead;
 
@@ -45,6 +48,7 @@ public class PlayerControl : MonoBehaviour
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         isGameOver = false;
     }
 
@@ -130,6 +134,7 @@ public class PlayerControl : MonoBehaviour
         died = true;
         dead.Play();
         speed = 0;
+        winLose.text = "You Lose";
         
     }
 
@@ -138,6 +143,7 @@ public class PlayerControl : MonoBehaviour
         Debug.Log("You Win");
         speed = 0;
         winned = true;
+        winLose.text = "You Win";
     }
 
     
